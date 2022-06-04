@@ -12,6 +12,9 @@ class Flyweight:
 
 
 class FlyweightFactory:
+    # Stores initial or new unique flyweights here
+    # then uses flyweights from this dict if the one is present
+    # otherwise adds new flyweight
     _flyweights: dict[str, Flyweight] = {}
 
     def __init__(self, initial_flyweights: list):
@@ -40,8 +43,8 @@ def create_phone(factory: FlyweightFactory, brand: str, model: str,
 
 
 if __name__ == '__main__':
-    # 1. GPU  2. CPU  3. RAM
     initial_state = [
+        # 1. GPU  2. CPU  3. RAM
         ["M210", "Snapdragon 500", "4gb"],
         ["M210", "Snapdragon 450", "3gb"],
         ["M230", "Snapdragon 650", "6gb"],
